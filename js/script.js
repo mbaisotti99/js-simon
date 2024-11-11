@@ -96,6 +96,7 @@ formElement.addEventListener("submit", function (event) {
             confetta();
             winMessage.innerHTML = "Complimenti! HAI VINTO"
             winMessage.classList.add("bg-success")
+            winMessage.classList.remove("bg-warning")
         } else if (winCount === 4){
             winMessage.innerHTML = "C'eri quasi! Riprova"
             winMessage.classList.add("bg-warning")
@@ -103,8 +104,11 @@ formElement.addEventListener("submit", function (event) {
         } else if (winCount < 4){
             winMessage.innerHTML = "Non ci siamo :( Riprova"
             winMessage.classList.add("bg-danger")
+            winMessage.classList.remove("bg-warning")
         }
     }
+
+    stopButt.disabled = true;
 
 })
 
@@ -131,6 +135,12 @@ resettButt.addEventListener("click", function (event) {
     if (stopButt.classList.contains("d-none") === false) {
         stopButt.classList.add("d-none")
     }
+
+    winMessage.classList = "fs-1 p-3 rounded"
+    winMessage.innerHTML = ""
+
+    stopButt.disabled = false;
+    counterElem.innerHTML = "";
 })
 
 
