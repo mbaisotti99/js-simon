@@ -88,7 +88,7 @@ formElement.addEventListener("submit", function (event) {
             if (parseInt(usNumbers[i]) === parseInt(arrayToFind[j])) {
 
                 numbers[i].innerHTML = `<p class="bg-success mt-5 rounded" id="win">Il numero ${usNumbers[i]} è CORRETTO!</p>`;
-                delete arrayToFind[j];  
+                delete arrayToFind[j];
                 winCount++;
             }
         }
@@ -97,11 +97,11 @@ formElement.addEventListener("submit", function (event) {
             winMessage.innerHTML = "Complimenti! HAI VINTO"
             winMessage.classList.add("bg-success")
             winMessage.classList.remove("bg-warning")
-        } else if (winCount === 4){
+        } else if (winCount === 4) {
             winMessage.innerHTML = "C'eri quasi! Riprova"
             winMessage.classList.add("bg-warning")
             winMessage.classList.remove("bg-danger")
-        } else if (winCount < 4){
+        } else if (winCount < 4) {
             winMessage.innerHTML = "Non ci siamo :( Riprova"
             winMessage.classList.add("bg-danger")
             winMessage.classList.remove("bg-warning")
@@ -166,36 +166,35 @@ function countdown() {
     }, 10)
 }
 
-function confetta(){
+function confetta() {
     const duration = 15 * 1000,
-  animationEnd = Date.now() + duration,
-  defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+        animationEnd = Date.now() + duration,
+        defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
-function randomInRange(min, max) {
-  return Math.random() * (max - min) + min;
-}
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
 
-const interval = setInterval(function() {
-  const timeLeft = animationEnd - Date.now();
+    const interval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
 
-  if (timeLeft <= 0) {
-    return clearInterval(interval);
-  }
+        if (timeLeft <= 0) {
+            return clearInterval(interval);
+        }
 
-  const particleCount = 50 * (timeLeft / duration);
+        const particleCount = 50 * (timeLeft / duration);
 
-  // since particles fall down, start a bit higher than random
-  confetti(
-    Object.assign({}, defaults, {
-      particleCount,
-      origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-    })
-  );
-  confetti(
-    Object.assign({}, defaults, {
-      particleCount,
-      origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-    })
-  );
-}, 250);
+        confetti(
+            Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+            })
+        );
+        confetti(
+            Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+            })
+        );
+    }, 250);
 }
