@@ -56,18 +56,20 @@ formElement.addEventListener("submit", function (event) {
 
     // }
     let usNumbers = [];
+    
+    for (let i = 0; i < userNumbs.length; i++) {
+        usNumbers.push(userNumbs[i].value)
+    }
 
     for (let i = 0; i < usNumbers.length; i++){
         usNumbers[i] = parseInt(usNumbers[i].trim())
         if (isNaN(usNumbers[i])){
-            alert("Errore, uno degli input non è un numero")
+            alert("Errore, uno degli input non è un numero. Riprova")
+            location.reload();
             break;
         } 
     }
 
-    for (let i = 0; i < userNumbs.length; i++) {
-        usNumbers.push(userNumbs[i].value)
-    }
 
     for (let i = 0; i < usNumbers.length; i++) {
         numbers[i].innerHTML = `<p class="bg-danger mt-5 rounded">Numero ${usNumbers[i]} è ERRATO!</p>`;
