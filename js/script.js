@@ -92,20 +92,18 @@ formElement.addEventListener("submit", function (event) {
                 winCount++;
             }
         }
-        if (winCount === 5) {
-            confetta();
-            winMessage.innerHTML = "Complimenti! HAI VINTO"
-            winMessage.classList.add("bg-success")
-            winMessage.classList.remove("bg-warning")
-        } else if (winCount === 4) {
-            winMessage.innerHTML = "C'eri quasi! Riprova"
-            winMessage.classList.add("bg-warning")
-            winMessage.classList.remove("bg-danger")
-        } else if (winCount < 4) {
-            winMessage.innerHTML = "Non ci siamo :( Riprova"
-            winMessage.classList.add("bg-danger")
-            winMessage.classList.remove("bg-warning")
-        }
+    }
+
+    if (winCount === 5) {
+        confetta();
+        winMessage.innerHTML = "Complimenti! HAI VINTO"
+        winMessage.classList.add("bg-success")
+    } else if (winCount === 4) {
+        winMessage.innerHTML = "C'eri quasi! Riprova"
+        winMessage.classList.add("bg-warning")
+    } else if (winCount < 4) {
+        winMessage.innerHTML = "Non ci siamo :( Riprova"
+        winMessage.classList.add("bg-danger")
     }
 
     stopButt.disabled = true;
@@ -141,6 +139,7 @@ resettButt.addEventListener("click", function (event) {
 
     stopButt.disabled = false;
     counterElem.innerHTML = "";
+    arrayToFind = [];
 })
 
 
@@ -165,6 +164,8 @@ function countdown() {
 
     }, 10)
 }
+
+// CONFETTI 
 
 function confetta() {
     const duration = 15 * 1000,
